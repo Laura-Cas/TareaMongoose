@@ -1,0 +1,30 @@
+<div class="container">
+    <h1 class="text-center pb-4 bg-dark text-white">Album de Peliculas</h1>
+    <div class="row">
+        {{#each movies}}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>{{title}}</h3>
+                    <p><strong>Año:</strong> {{year}}</p>
+                    <p><strong>Género:</strong> {{genre}}</p>
+                    <p><strong>Director:</strong> {{director}}</p>
+                    <p><strong>Descripción:</strong> {{description}}</p>
+                    <p><strong>Creado en:</strong> {{createdAt}}</p>
+                    <p><strong>Actualizado en:</strong> {{updatedAt}}</p>
+                </div>
+                <div class="card-footer">
+                   <form action="/movies/edit/{{_id}}" method="GET" class="d-inline">
+                   <button type="submit" class="btn btn-success bnt-block btn-sm">Modificar</button>
+                   </form>
+                     <form action="/movies/delete/{{_id}}?_method=DELETE" method="POST" class="d-inline">
+                     <input type="hidden" name="_method" value="DELETE">
+                   <button type="submit" class="btn btn-danger bnt-block btn-sm">Eliminar
+                   </button>
+                   </form>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
